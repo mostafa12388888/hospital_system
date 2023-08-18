@@ -11,7 +11,7 @@ class Doctor extends Authenticatable
     use HasFactory,Translatable;
     protected $table='doctors';
     // protected $guarded =[];
-    protected $fillable=['name','section_id','status','email','phone','password','email_veryfired_at'];
+    protected $fillable=['name','section_id','status','Number_Of_STatmets','email','phone','password','email_veryfired_at'];
     public $translatedAttributes=['name'];
 
     public function image(){

@@ -14,8 +14,8 @@
     <link href="{{URL::asset('Dashbord/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
     <link href="{{URL::asset('Dashbord/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
     <!--Internal   Notify -->
-    <link href="{{URL::asset('Dashbord/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/>
-    <link href="{{URL::asset('css/app.css')}}" rel="stylesheet"/>
+    {{-- <link href="{{URL::asset('Dashbord/plugins/notify/css/notifIt.css')}}" rel="stylesheet"/> --}}
+    {{-- <link href="{{URL::asset('css/app.css')}}" rel="stylesheet"/> --}}
 
 
 

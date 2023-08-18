@@ -27,32 +27,32 @@ Route::middleware('guest')->group(function () {
 
     Route::post('Patient/login', [patientCOntroller::class, 'store'])->name('Patient.login');
 
-    
 
-    Route::get('/',  [AuthenticatedSessionController::class, 'create']);
+
+    // Route::get('/',  [AuthenticatedSessionController::class, 'create']);
 
     ########################Route ADMIN #################
     // Route::get('admin/login', [AdminController::class, 'create'])->name('user.login');
 
     Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
-    
+
     ########################Route doctor #################
-    
+
 
     Route::post('doctor/login', [DoctorController::class, 'store'])->name('doctor.login');
-    
+
     ########################  ###################################
     ########################Route rayemployee #################
-    
+
 
     Route::post('rayemployee/login', [RAYEMPLOYEEController::class, 'store'])->name('rayemployee.login');
-    
+
     ########################  ###################################
     ########################Route rayemployee #################
-    
+
 
     Route::post('laboratorEmploye/login', [LaboratoryEmployeecONTROLLERS::class, 'store'])->name('laboratorEmploye.login');
-    
+
     ########################  ###################################
 
 

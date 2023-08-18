@@ -19,18 +19,18 @@
 					<div class="main-header-right">
 						<ul class="nav">
 							<li class="">
-						
+
 							<div class="dropdown  nav-itemd-none d-md-flex">
                         <a href="#" class="d-flex  nav-item nav-link pl-0 country-flag1" data-toggle="dropdown"
                            aria-expanded="false">
                             @if (App::getLocale() == 'ar')
                                 <span class="avatar country-Flag mr-0 align-self-center bg-transparent"><img
-                                        src="{{URL::asset('Dashboard/img/flags/egypt_flag.jpg')}}" alt="img"></span>
+                                        src="{{URL::asset('Dashbord/img/flags/egypt_flag.png')}}" alt="img">000</span>
                                 <strong
                                     class="mr-2 ml-2 my-auto">{{ LaravelLocalization::getCurrentLocaleName() }}</strong>
                             @else
                                 <span class="avatar country-Flag mr-0 align-self-center bg-transparent"><img
-                                        src="{{URL::asset('Dashboard/img/flags/us_flag.jpg')}}" alt="img"></span>
+                                        src="{{URL::asset('Dashbord/img/flags/us_flag.jpg')}}" alt="img"></span>
                                 <strong
                                     class="mr-2 ml-2 my-auto">{{ LaravelLocalization::getCurrentLocaleName() }}</strong>
                             @endif
@@ -194,25 +194,25 @@
 									</div>
 									<a class="dropdown-item" href=""><i class="bx bx-user-circle"></i>{{trans('main-sidebar_trans.Profile')}}</a>
 									<a class="dropdown-item" href=""><i class="bx bx-cog"></i> {{trans('main-sidebar_trans.Edit_Profile')}}</a>
-									
+
 
 									@if(auth('web')->check())
 									<form action="{{route('user.logout')}}" method="post">
-									@elseif(auth('doctor')->check())	
-									
+									@elseif(auth('doctor')->check())
+
 									<form action="{{route('doctor.logout')}}" method="post">
-									
-									@elseif(auth('rayemployee')->check())	
-									
+
+									@elseif(auth('rayemployee')->check())
+
 									<form action="{{route('rayemployee.logout')}}" method="post">
-									@elseif(auth('laboratorEmploye')->check())	
-									
+									@elseif(auth('laboratorEmploye')->check())
+
 									<form action="{{route('laboratorEmploye.logout')}}" method="post">
 									@else
-								
+
 										<form action="{{route('admin.logout')}}" method="post">
 											@endif
-											
+
 	@csrf
 <button class="dropdown-item" type="submite"><i class="bx bx-log-out"></i> {{trans('main-sidebar_trans.Sign_Out')}}</button>
 
@@ -230,9 +230,7 @@
 			</div>
 <!-- /main-header -->
 
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-<script src="{{asset('js/echo.js')}}"></script>
-<script src="{{ asset('js/app.js') }}" defer></script>
+
 
 <script src="https://js.pusher.com/4.1/pusher.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -241,18 +239,18 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>  -->
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
 
- <!-- <script src="{{asset('js/app.js')}}"></script> -->
- <script src="{{ asset('build.assets.app-4b573cc3s') }}" ></script>
- 
-<script>
-	
+
+ @vite(['resources/js/app.js'])
+
+<script type="module">
+
 	var Notification_scroll=document.querySelector('.Notification-scroll');
 var data_countered=parseInt(document.querySelector('.data-countered').innerText);
 var Notificationpsher=$('.main-header-notification .dropdown-notifications');
 var x=3;
 // console.log(Echo.private(`createInvoice.{{ auth()->user()->id }}`).listen('.App\\Events\\CreateInvoices', (data) => {
-	Echo.private(`createInvoice.${x}`).listen('.createInvoice', (data) => {
-console.log("the value");
+	Echo.private(`createInvoice.{{ auth()->user()->id }}`).listen('.createInvoice', (data) => {
+// console.log("the value");
 Notification_scroll.innerHTML+=`<a class="d-flex p-3 border-bottom" href="#">
 											<div class="notifyimg bg-pink">
 												<i class="la la-file-alt text-white"></i>
@@ -265,7 +263,10 @@ Notification_scroll.innerHTML+=`<a class="d-flex p-3 border-bottom" href="#">
 												<i class="las la-angle-left text-left text-muted"></i>
 											</div>
 										</a>`;
-	$('.data-countered').innerHTML=++data_countered;
+                                        data_countered+=1;
+                                        // consle.log(data_countered)
+	$('.data-countered').innerText=data_countered;
+
 Notificationpsher.show();
 });
 

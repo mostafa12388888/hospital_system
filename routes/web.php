@@ -3,8 +3,11 @@
 use App\Http\Controllers\Dashbord\doctor\PatientDetailsController;
 use App\Http\Controllers\Patinat_Dashbord\PatientController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\Chat\CreateChat;
+use App\Http\Livewire\Chat\Main;
 use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +25,9 @@ Route::group(
         'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){ //...
+        Route::get('/',  function (){
+            return view('welcome');
+        });
 ###########################Route Dashbord User###########################################
 
 ###########################Route Dashbord Doctor###########################################
@@ -36,8 +42,14 @@ Route::prefix('Patient')->group(function(){
     Route::get('/Patient_rayshow',[PatientController::class,'RayShow'])->name('Patient_rayshow.patient');
     Route::get('/Payment_rayshow',[PatientController::class,'Payment'])->name('Payment_Paymentshow.patient');
 ##############################view rays##################
-                });
-    });
-    });
+        ###########################Route chat patiet###########################################
 
-   
+    Route::get('/list/doctor',CreateChat::class)->name('list.doctors');
+    Route::get('/chat/doctor',Main::class)->name('chat.doctors');
+
+##############################ed chat patint with doctor ##################
+
+
+
+});});});
+

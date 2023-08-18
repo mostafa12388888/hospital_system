@@ -1,4 +1,5 @@
 <?php
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use App\Http\Controllers\AmbulanceController;
 use App\Http\Controllers\Dashbord\DectorsController;

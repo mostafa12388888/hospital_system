@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Events\CreateInvoice;
 use App\Events\CreateInvoices;
 use App\Events\MyEvet;
+use App\Models\Appotment2;
 use App\Models\Doctor;
 use App\Models\FundAccount;
 use App\Models\Invoice;
@@ -60,7 +61,7 @@ $this->username=Auth::user()->name;
            Invoice::findOrFail($this->single_invoice_id)->update([
             'invoice_status'=>1,
             'type'=>$this->type,
-           
+
             'invoice_type'=>1,
             'tax_rate'=>$this->tax_rate,
             'discount_value'=>$this->discount_value|0,
@@ -75,12 +76,12 @@ $this->username=Auth::user()->name;
             ]);
             if($this->type==1){
                 $fundAcout=FundAccount::where('invoice_id',$this->single_invoice_id)->first();
-               
+
                 $fundAcout->Credit=0.00;
                 $fundAcout->Depit= $total;
                 $fundAcout->date=date('Y-m-d');
                 $fundAcout->save();
-               
+
             }else{
                 $patientAcount=PatientAccount::where('invoice_id',$this->single_invoice_id)->first();;
                 $patientAcount->date=date("Y-m-d");
@@ -90,11 +91,11 @@ $this->username=Auth::user()->name;
                 $patientAcount->save();
             }
         }else{
-         
+
         $lastId=  Invoice::insertGetId([
             'invoice_status'=>1,
             'type'=>$this->type,
-           
+
             'invoice_type'=>1,
             'tax_rate'=>$this->tax_rate,
             'discount_value'=>$this->discount_value|0,
@@ -108,7 +109,7 @@ $this->username=Auth::user()->name;
             'total_with_tax'=> $total,
     ]);
         if($this->type==1){
-        
+
     // store in Fund_acount table
     $fundAcout=new FundAccount();
     $fundAcout->Credit=0.00;
@@ -116,7 +117,7 @@ $this->username=Auth::user()->name;
     $fundAcout->invoice_id= $lastId;
     $fundAcout->date=date('Y-m-d');
     $fundAcout->save();
-    
+
         }else{
             // store in invoices_patient Table
             $patientAcount=new PatientAccount();
@@ -127,14 +128,24 @@ $this->username=Auth::user()->name;
             $patientAcount->Credit=0.00;
             $patientAcount->save();
         }
+        $patient = Patient::find($this->patient_id);
+        $appointment_info = Appotment2::where('doctor_id', $this->doctor_id)->where('email', $patient->email)->where('type','مؤكد')->first();
+
+if(  $appointment_info){
+    $appointment_info->update([
+        'type'=>'منتهي',
+    ]);
+}
+
+
     //    $not=new Notification();
     //    $not->username=$this->username;
     //    $not->message='كشف جديد'.$patientName;
     //    $not->save();
     $patientName=Patient::findOrFail($this->patient_id)->name;
-    $usernamed=Auth::user()->id;
+    // $usernamed=Auth::user()->id;
         Notification::create([
-            'user_id'=> $usernamed,
+            'user_id'=> $this->doctor_id,
             'message'=>'كشف جديد'.$patientName,
         ]);
         // dd($this->patient_id);
@@ -145,12 +156,12 @@ $this->username=Auth::user()->name;
         ];
         event(new CreateInvoice($data));
     }
-   
-   
+
+
     DB::commit();
     }catch(\Exception $e){
         DB::rollBack();
-        return $this->catchError=$e->getMessage();
+         $this->catchError=$e->getMessage();
     }
     $this->reset();
     $this->showTable=true;
@@ -170,14 +181,14 @@ $this->username=Auth::user()->name;
     $this->discount_value= $single_invoice->discout_Value;
     $this->tax_rate= $single_invoice->tax_rate;
     $this->type= $single_invoice->type;
-    
+
 
 
    }
 //    public function update($id){
 //     single_invoice::findOrFail($id)->update([
 //         'type'=>$this->type,
-   
+
 //         'tax_rate'=>$this->tax_rate,
 //         'discout_Value'=>$this->discount_value|0,
 //         'price'=>$this->price,

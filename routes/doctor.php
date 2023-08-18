@@ -1,4 +1,5 @@
 <?php
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use App\Http\Controllers\AmbulanceController;
 use App\Http\Controllers\Dashbord\DectorsController;
@@ -14,6 +15,8 @@ use App\Http\Controllers\Dashbord\ReceptAcountController;
 use App\Http\Controllers\Dashbord\SectionController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServicesController;
+use App\Http\Livewire\Chat\CreateChat;
+use App\Http\Livewire\Chat\Main;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
@@ -58,6 +61,13 @@ Route::prefix('doctor')->group(function(){
        ROute::post('add_review',[DignosticController::class,'add_review'])->name('add_review');
        Route::resource('rays',RaysController::class);
        Route::resource('patient_details',PatientDetailsController::class);
+
+        ###########################Route chat patiet###########################################
+
+    Route::get('/list/patient',CreateChat::class)->name('list.patient');
+    Route::get('/chat/patient',Main::class)->name('chat.patient');
+
+##############################ed chat patint with doctor ##################
 
                 });
     });

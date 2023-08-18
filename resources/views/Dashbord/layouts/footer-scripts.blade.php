@@ -26,8 +26,8 @@
 <script src="{{URL::asset('Dashbord/js/table-data.js')}}"></script>
 
 <!-- notifie like for message laybrare -->
-<script src="{{URL::asset('dashboard/plugins/notify/js/notifIt.js')}}"></script>
-    <script src="{{URL::asset('/plugins/notify/js/notifit-custom.js')}}"></script>
+{{-- <script src="{{URL::asset('dashboard/plugins/notify/js/notifIt.js')}}"></script> --}}
+    {{-- <script src="{{URL::asset('/plugins/notify/js/notifit-custom.js')}}"></script> --}}
 
 
 
@@ -36,7 +36,7 @@
 
 
 
-    
+
 <!-- Back-to-top -->
 <a href="#top" id="back-to-top"><i class="las la-angle-double-up"></i></a>
 <!-- JQuery min js -->

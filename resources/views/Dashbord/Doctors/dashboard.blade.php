@@ -1,9 +1,9 @@
 @extends('Dashbord.layouts.master')
 @section('css')
 <!--  Owl-carousel css-->
-<link href="{{URL::asset('Dahbord/plugins/owl-carousel/owl.carousel.css')}}" rel="stylesheet" />
+<link href="{{URL::asset('Dashbord/plugins/owl-carousel/owl.carousel.css')}}" rel="stylesheet" />
 <!-- Maps css -->
-<link href="{{URL::asset('Dahbord/plugins/jqvmap/jqvmap.min.css')}}" rel="stylesheet">
+<link href="{{URL::asset('Dashbord/plugins/jqvmap/jqvmap.min.css')}}" rel="stylesheet">
 @endsection
 @section('page-header')
 				<!-- breadcrumb -->
@@ -11,10 +11,10 @@
 					<div class="left-content">
 						<div>
 						  <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">{{trans('main-sidebar_trans.control_Board')}}</h2>
-						 
+
 						</div>
 					</div>
-					
+
 				</div>
 				<!-- /breadcrumb -->
 @endsection
@@ -31,13 +31,13 @@
 									<div class="d-flex">
 										<div class="">
 											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{\App\Models\Invoice::where('doctor_id',Auth::user()->id)->count()}}</h4>
-											
+
 										</div>
-										
+
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 					<div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
@@ -52,11 +52,11 @@
 											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{\App\Models\Invoice::where('doctor_id',Auth::user()->id)->where('invoice_status',1)->count()}}</h4>
 
 										</div>
-										
+
 									</div>
 								</div>
 							</div>
-						
+
 						</div>
 					</div>
 					<div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
@@ -71,11 +71,11 @@
 											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{\App\Models\Invoice::where('doctor_id',Auth::user()->id)->where('invoice_status',2)->count()}}</h4>
 
 										</div>
-										
+
 									</div>
 								</div>
 							</div>
-						
+
 						</div>
 					</div>
 					<div class="col-xl-3 col-lg-6 col-md-6 col-xm-12">
@@ -90,11 +90,11 @@
 											<h4 class="tx-20 font-weight-bold mb-1 text-white">{{\App\Models\Invoice::where('doctor_id',Auth::user()->id)->where('invoice_status',3)->count()}}</h4>
 
 										</div>
-										
+
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</div>
 				</div>
@@ -154,7 +154,7 @@
 								<div class="list-group list-lg-group list-group-flush">
 									<div class="list-group-item list-group-item-action" href="#">
 										<div class="media mt-0">
-											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dahbord/img/faces/3.jpg')}}" alt="Image description">
+											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dashbord/img/faces/3.jpg')}}" alt="Image description">
 											<div class="media-body">
 												<div class="d-flex align-items-center">
 													<div class="mt-0">
@@ -170,7 +170,7 @@
 									</div>
 									<div class="list-group-item list-group-item-action" href="#">
 										<div class="media mt-0">
-											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dahbord/img/faces/11.jpg')}}" alt="Image description">
+											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dashbord/img/faces/11.jpg')}}" alt="Image description">
 											<div class="media-body">
 												<div class="d-flex align-items-center">
 													<div class="mt-1">
@@ -186,7 +186,7 @@
 									</div>
 									<div class="list-group-item list-group-item-action" href="#">
 										<div class="media mt-0">
-											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dahbord/img/faces/17.jpg')}}" alt="Image description">
+											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dashbord/img/faces/17.jpg')}}" alt="Image description">
 											<div class="media-body">
 												<div class="d-flex align-items-center">
 													<div class="mt-1">
@@ -202,7 +202,7 @@
 									</div>
 									<div class="list-group-item list-group-item-action" href="#">
 										<div class="media mt-0">
-											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dahbord/img/faces/15.jpg')}}" alt="Image description">
+											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dashbord/img/faces/15.jpg')}}" alt="Image description">
 											<div class="media-body">
 												<div class="d-flex align-items-center">
 													<div class="mt-1">
@@ -218,7 +218,7 @@
 									</div>
 									<div class="list-group-item list-group-item-action br-br-7 br-bl-7" href="#">
 										<div class="media mt-0">
-											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dahbord/img/faces/6.jpg')}}" alt="Image description">
+											<img class="avatar-lg rounded-circle ml-3 my-auto" src="{{URL::asset('Dashbord/img/faces/6.jpg')}}" alt="Image description">
 											<div class="media-body">
 												<div class="d-flex align-items-center">
 													<div class="mt-1">
@@ -414,23 +414,23 @@
 @endsection
 @section('js')
 <!--Internal  Chart.bundle js -->
-<script src="{{URL::asset('Dahbord/plugins/chart.js/Chart.bundle.min.js')}}"></script>
+<script src="{{URL::asset('Dashbord/plugins/chart.js/Chart.bundle.min.js')}}"></script>
 <!-- Moment js -->
-<script src="{{URL::asset('Dahbord/plugins/raphael/raphael.min.js')}}"></script>
+<script src="{{URL::asset('Dashbord/plugins/raphael/raphael.min.js')}}"></script>
 <!--Internal  Flot js-->
-<script src="{{URL::asset('Dahbord/plugins/jquery.flot/jquery.flot.js')}}"></script>
-<script src="{{URL::asset('Dahbord/plugins/jquery.flot/jquery.flot.pie.js')}}"></script>
-<script src="{{URL::asset('Dahbord/plugins/jquery.flot/jquery.flot.resize.js')}}"></script>
-<script src="{{URL::asset('Dahbord/plugins/jquery.flot/jquery.flot.categories.js')}}"></script>
-<script src="{{URL::asset('Dahbord/js/dashboard.sampledata.js')}}"></script>
-<script src="{{URL::asset('Dahbord/js/chart.flot.sampledata.js')}}"></script>
+<script src="{{URL::asset('Dashbord/plugins/jquery.flot/jquery.flot.js')}}"></script>
+<script src="{{URL::asset('Dashbord/plugins/jquery.flot/jquery.flot.pie.js')}}"></script>
+<script src="{{URL::asset('Dashbord/plugins/jquery.flot/jquery.flot.resize.js')}}"></script>
+<script src="{{URL::asset('Dashbord/plugins/jquery.flot/jquery.flot.categories.js')}}"></script>
+<script src="{{URL::asset('Dashbord/js/dashboard.sampledata.js')}}"></script>
+<script src="{{URL::asset('Dashbord/js/chart.flot.sampledata.js')}}"></script>
 <!--Internal Apexchart js-->
-<script src="{{URL::asset('Dahbord/js/apexcharts.js')}}"></script>
+<script src="{{URL::asset('Dashbord/js/apexcharts.js')}}"></script>
 <!-- Internal Map -->
-<script src="{{URL::asset('Dahbord/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
-<script src="{{URL::asset('Dahbord/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
-<script src="{{URL::asset('Dahbord/js/modal-popup.js')}}"></script>
+<script src="{{URL::asset('Dashbord/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{URL::asset('Dashbord/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+<script src="{{URL::asset('Dashbord/js/modal-popup.js')}}"></script>
 <!--Internal  index js -->
-<script src="{{URL::asset('Dahbord/js/index.js')}}"></script>
-<script src="{{URL::asset('Dahbord/js/jquery.vmap.sampledata.js')}}"></script>	
+<script src="{{URL::asset('Dashbord/js/index.js')}}"></script>
+<script src="{{URL::asset('Dashbord/js/jquery.vmap.sampledata.js')}}"></script>
 @endsection

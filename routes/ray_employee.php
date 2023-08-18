@@ -1,4 +1,5 @@
 <?php
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use App\Http\Controllers\AmbulanceController;
 use App\Http\Controllers\Dashbord\DectorsController;
@@ -45,7 +46,7 @@ Route::get('rayemployee/dashboard', function () {
         ###########################Route End Dashbord Doctor###########################################
 Route::prefix('rayemployee')->group(function(){
         Route::middleware(['auth:rayemployee'])->group(function(){
-       
+
 Route::resource('invoices_ray_employee',InvoiceController::class);
 ##############################view rays##################
 Route::get('/view_rays/{id}',[InvoiceController::class,'view_rays'])->name('view_rays');

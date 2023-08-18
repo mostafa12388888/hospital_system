@@ -1,7 +1,9 @@
 <?php
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 use App\Events\MyEvet;
 use App\Http\Controllers\AmbulanceController;
+use App\Http\Controllers\Dashbord\appointments;
 use App\Http\Controllers\Dashbord\DectorsController;
 use App\Http\Controllers\Dashbord\doctor\LaboratoryController;
 use App\Http\Controllers\Dashbord\insuranceController;
@@ -41,7 +43,7 @@ Route::get('user/dashboard', function () {
 ###########################Route Dashbord Admin###########################################
 
         Route::get('admin/dashboard', function () {
-          
+
             return view('Dashbord.Admin.dashboard');
         })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
         ###########################Route End Dashbord Admin###########################################
@@ -58,7 +60,7 @@ Route::get('user/dashboard', function () {
                       ###########################start Route Dashbord  Services ###########################################
                       Route::resource('Services_admin',ServicesController::class);
                       ###########################End Route Dashbord  Services ###########################################
-Route::view('Services_ofer','livewire.groupt-service.sevices_ofer')->name('Services_ofer');    
+Route::view('Services_ofer','livewire.groupt-service.sevices_ofer')->name('Services_ofer');
 Route::resource('insurance',insuranceController::class);
 
 Route::resource('Ambulance',AmbulanceController::class);
@@ -76,6 +78,14 @@ Route::resource('Payment',PaymentAcountController::class);
 Route::resource('ray_employee',RayEmployController::class);
 Route::resource('laboratorie_employee',LaboratoryEmployeeController::class);
 #############################Start RayEmploy ########################
+
+#############################Start ِstart show AppointMents #####################
+
+Route::resource('appointmets',appointments::class);
+Route::get('/appointments/keep_up',[appointments::class,'keep_up'])->name('appointments.keep_up');
+Route::get('/appointments/approval',[appointments::class,'approval'])->name('appointments.approval');
+#############################Start ِend show AppointMents ########################
+
 
 #############################Start group invoices ########################
 Route::view('/group_invoices','livewire.group-invoices.index')->name('group_invoices');
