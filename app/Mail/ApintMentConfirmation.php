@@ -16,9 +16,11 @@ class ApintMentConfirmation extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public $name,$appoiment;
+    public function __construct( $name,$appoiment)
     {
-        //
+        $this->name=$name;
+        $this->appoiment=$appoiment;
     }
 
     /**

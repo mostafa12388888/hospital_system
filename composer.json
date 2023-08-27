@@ -17,7 +17,8 @@
         "mcamara/laravel-localization": "^1.8",
         "pusher/pusher-php-server": "^7.2",
         "symfony/http-client": "^6.3",
-        "symfony/mailgun-mailer": "^6.3"
+        "symfony/mailgun-mailer": "^6.3",
+        "twilio/sdk": "^7.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

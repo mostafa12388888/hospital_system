@@ -72,7 +72,7 @@
 <script src="{{URL::asset('Dashbord/js/custom.js')}}"></script><!-- Left-menu js-->
 <script src="{{URL::asset('Dashbord/plugins/side-menu/sidemenu.js')}}"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> --}}
 
 
 @livewireScripts
