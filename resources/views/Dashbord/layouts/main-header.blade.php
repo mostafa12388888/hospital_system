@@ -230,15 +230,10 @@
 			</div>
 <!-- /main-header -->
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-
-<script src="https://js.pusher.com/4.1/pusher.min.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
 <script src="https://js.pusher.com/8.2.0/pusher.min.js"></script>
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>  -->
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> -->
-
 
  @vite(['resources/js/app.js'])
 
@@ -247,10 +242,7 @@
 	var Notification_scroll=document.querySelector('.Notification-scroll');
 var data_countered=parseInt(document.querySelector('.data-countered').innerText);
 var Notificationpsher=$('.main-header-notification .dropdown-notifications');
-var x=3;
-// console.log(Echo.private(`createInvoice.{{ auth()->user()->id }}`).listen('.App\\Events\\CreateInvoices', (data) => {
 	Echo.private(`createInvoice.{{ auth()->user()->id }}`).listen('.createInvoice', (data) => {
-// console.log("the value");
 Notification_scroll.innerHTML+=`<a class="d-flex p-3 border-bottom" href="#">
 											<div class="notifyimg bg-pink">
 												<i class="la la-file-alt text-white"></i>
@@ -264,10 +256,8 @@ Notification_scroll.innerHTML+=`<a class="d-flex p-3 border-bottom" href="#">
 											</div>
 										</a>`;
                                         data_countered+=1;
-                                        // consle.log(data_countered)
-	$('.data-countered').innerText=data_countered;
+										document.querySelector('.data-countered').innerText=data_countered;
 
 Notificationpsher.show();
 });
-
 </script>
