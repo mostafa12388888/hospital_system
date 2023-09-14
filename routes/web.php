@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashbord\doctor\PatientDetailsController;
+use App\Http\Controllers\fatooracontroller;
 use App\Http\Controllers\Patinat_Dashbord\PatientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Chat\CreateChat;
@@ -52,4 +53,12 @@ Route::prefix('Patient')->group(function(){
 
 
 });});});
+
+// Route::post('pay',[fatooracontroller::class,'payorder'])->name('pay');
+// Route::get('callback',function(){
+//     return 'succes';
+// })->name('callback');
+// Route::get('error',function (){
+//     return 'payment faild';
+// })->name('error');
 

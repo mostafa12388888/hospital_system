@@ -11,30 +11,48 @@ use Livewire\Component;
 class ChatList extends Component
 {
     public $auth_email,$receviverUser,$selected_conversation,$name;
-    protected $listeners=['refresh'=>'$refresh'];
+    // $conversations=[];
+    protected $listeners=['refresh'=>'$refresh','chatUserSelected'];
     public function mount(){
         $this->auth_email=auth()->user()->email;
+        // $this->conversations[]=Conversation::where('sender_email',$this->auth_email)->orWhere('reciver_email',$this->auth_email)
+        // ->orderBy('created_at', 'DESC')
+        // ->get();
     }
 
-    public function getUsers(Conversation $Conversation,$request){
+    public function getUsers(Conversation $Conversation, string $request)
+    {
 // dd($Conversation->get($request));
-if($Conversation->sender_email==$this->auth_email){
+//if i doctor if i sender
+// if i doctor i reciver
 
-    $this->receviverUser=Doctor::firstwhere('email',$Conversation->reciver_email);
-}else{
 
-    $this->receviverUser=Patient::firstwhere('email',$Conversation->sender_email);
-}
+if(Doctor::whereEmail($this->auth_email)->get()->isNotEmpty())
+    if($Conversation->sender_email==$this->auth_email){
+        $this->receviverUser=Patient::firstwhere('email',$Conversation->reciver_email);
+    }else{
+        $this->receviverUser=Patient::firstwhere('email',$Conversation->sender_email);
+    }
+else{
+    if($Conversation->sender_email==$this->auth_email){
+        $this->receviverUser=Doctor::firstwhere('email',$Conversation->reciver_email);
+    }else{
 
-// dd($request);
-// dd($this->receviverUser->id);
+        $this->receviverUser=Doctor::firstwhere('email',$Conversation->sender_email);
+    }}
+
+    // return $this->receviverUser->email;
+// dd( $this->receviverUser->translations[0]->name);
+// dd($this->receviverUser->email);
 // $this->receviverUser->get($request);
 if($request=="name"){
-return $this->receviverUser->name;
+return  $this->receviverUser->translations[0]->name;
 }
 else if($request=="id"){
-return $this->receviverUser->id;}
-    }
+    return $this->receviverUser->id
+;}
+// return  $this->receviverUser->email;
+}
     public function chatUserSelected(Conversation $Conversation,$recive_id) {
 // dd($Conversation);
 $this->selected_conversation=$Conversation;
