@@ -8,8 +8,7 @@
 </p>
 
 ## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+I have developed a comprehensive system that empowers patients to book appointments, facilitates the clarification and analysis of X-rays within the system, and enables direct communication with doctors. This project involved utilizing technologies such as Livewire, Pusher Realtime, mcamara, Astrotomic Translation, and Polymorphic Relationships to deliver seamless functionality and enhance the user experience.
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
